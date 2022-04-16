@@ -11,7 +11,7 @@ SQLAlchemy==1.4.35
 WTForms==3.0.1
 Werkzeug~=2.0.0
 click==8.1.2
-
+psycopg2-binary==2.9.3
 
 dominate==2.5.2
 email-validator==1.1.3

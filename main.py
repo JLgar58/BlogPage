@@ -16,7 +16,7 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 
 load_dotenv(".env")
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv("APIKEY")
+app.config['SECRET_KEY'] = os.environ.get("APIKEY")
 app.config['CKEDITOR_PKG_TYPE'] = os.getenv("CKEDITOR_PKG_TYPE")
 ckeditor = CKEditor(app)
 Bootstrap(app)
@@ -32,7 +32,7 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 # CONNECT TO DB #
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL",  "sqlite:///blog.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = bool(os.getenv("SQLALCHEMY_TRACK_MODIFICATIONS"))
 db = SQLAlchemy(app)
 

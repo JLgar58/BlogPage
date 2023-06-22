@@ -32,7 +32,7 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 # CONNECT TO DB #
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("postgresql")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = bool(os.getenv("SQLALCHEMY_TRACK_MODIFICATIONS"))
 db = SQLAlchemy(app)
 
@@ -235,3 +235,4 @@ def delete_post(post_id):
 
 if __name__ == "__main__":
     app.run(debug=True)
+    # app.run(host="0.0.0.0", port=5000, debug=True)
